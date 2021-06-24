@@ -21,13 +21,13 @@ def update(name,department,collage_id,mark1,mark2,mark3,mark4,mark5,total,averag
     print("Data update Success")
 def get():
     res = con.cursor()
-    sql = "select id,name,department,collage_id,mark1,mark2,mark3,mark4,mark5,total,average,grade from student"
+    sql = "select * from student where id=%s"
     res.execute(sql)
     result = res.fetchone()
     print(result)
 def select():
     res = con.cursor()
-    sql = "select id,name,department,collage_id,mark1,mark2,mark3,mark4,mark5,total,average,grade from student"
+    sql = "select * from student"
     res.execute(sql)
     result = res.fetchall()
     print(tabulate(result,headers=["id","name","department","collage_id","mark1","mark2","mark3","mark4","mark5","total","average","grade"]))
